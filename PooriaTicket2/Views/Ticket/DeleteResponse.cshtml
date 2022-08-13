@@ -1,0 +1,7 @@
+﻿@model ResponseViewModel
+
+<form method="post" action="/Ticket/Delete2">
+    <input asp-for="TicketId" type="hidden" />
+     <input id="Id" name="Id" type="hidden" value="@Model.Id" />
+    <button class="btn btn-danger" type="submit">حذف</button>
+</form>

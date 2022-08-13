@@ -1,0 +1,22 @@
+﻿@model Ticket
+
+<form method="post">
+    <div class="border p-3 mt-4 col-6">
+        <div class="row pb-2">
+            <h2 class="text-primary">ویرایش تیکت</h2>
+            <h2 class="text-primary">@ViewBag.UserName</h2>
+            <hr />
+        </div>
+
+        <div asp-validation-summary=All></div>
+        <div class="mb-3">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+            <input asp-for=UserId type="hidden" />
+        </div>
+
+        <button class="btn btn-primary" type="submit">ویرایش</button>
+        <a asp-controller="Ticket" asp-action="Index" class="btn btn-secondary">لیست تیکتها</a>
+    </div>
+</form>

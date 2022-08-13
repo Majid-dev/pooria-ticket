@@ -1,0 +1,24 @@
+﻿@model User
+
+<form method="post">
+    <div class="border p-3 mt-4 col-6">
+        <div class="row pb-2">
+            <h2 class="text-primary">ویرایش کاربر</h2>
+            <hr />
+        </div>
+
+        <div asp-validation-summary=All></div>
+        <div class="mb-3">
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+          <div class="mb-3">
+            <label asp-for="RoleId"></label>
+            <select asp-for="RoleId" class="form-control" asp-items="@ViewBag.UserRoles"></select>
+            <span asp-validation-for="RoleId" class="text-danger"></span>
+        </div>
+        <button class="btn btn-primary" type="submit">ویرایش</button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">لیست کاربران</a>
+    </div>
+</form>

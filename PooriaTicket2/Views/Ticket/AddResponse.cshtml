@@ -1,0 +1,23 @@
+﻿@model ResponseViewModel
+
+<form method="post">
+    <div class="border p-3 mt-4 col-6">
+        
+
+        <div asp-validation-summary=All></div>
+        <div class="mb-3">
+            <label asp-for="TicketResponse"></label>
+            <input asp-for="TicketResponse" class="form-control" />
+            <span asp-validation-for="TicketResponse" class="text-danger"></span>
+            <input asp-for="TicketId" type="hidden" />
+            <input asp-for="UserId" type="hidden" />
+        </div>
+         @* <div class="mb-3">
+            <label asp-for="Responses[@Model.Responses.Count].UserId"></label>
+            <select asp-for="Responses[@Model.Responses.Count].UserId" class="form-control" asp-items="@ViewBag.UserRoles"></select>
+            <span asp-validation-for="Responses[@Model.Responses.Count].UserId" class="text-danger"></span>
+        </div>*@
+        <button class="btn btn-primary" type="submit" asp-controller="Ticket" asp-action="Details" asp-route-userId="Response.UserId">ثبت</button>
+        <a href="/Ticket/Index/@Model.UserId"  class="btn btn-secondary">لیست تیکتها</a>
+    </div>
+</form>

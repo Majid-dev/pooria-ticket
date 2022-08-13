@@ -1,0 +1,44 @@
+﻿
+@model ClaimIndexViewModel
+@{
+    ViewData["Title"] = "سیستم پوری تیکت";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2>لیست کاربران</h2>
+            <h3>@Model.Claims.First().Value</h3>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Home" asp-action="Create" class="btn btn-primary ">ایجاد کاربر</a>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>نام کاربر</th>
+                <th>گروه کاربری</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td width="50%">@user.UserName</td>
+                    <td width="30%">@user.Role.Title</td>
+                    <td>
+                        <a asp-controller="Home" asp-action="Edit" asp-route-id="@user.Id" class="btn btn-primary">ویرایش</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-id="@user.Id" class="btn btn-warning">حذف</a>
+                        <a asp-controller="Ticket" asp-action="Index" asp-route-id="@user.Id" class="btn btn-secondary">تیکتهای من</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
